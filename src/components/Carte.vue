@@ -8,6 +8,7 @@
         <b-row>
             <b-col xl="12" class="mx-auto mt-3">
                 <h3> Hello, what are you looking for in Paris?</h3>
+                <p>Tape un truc si tu veux chercher autre chose que des cafés lol</p>
             </b-col>
         </b-row>
         <b-row class="mb-5 mt-2">
@@ -51,7 +52,7 @@
         name: "Carte",
         data () {
             return {
-                keyword: 'here',
+                keyword: 'cafe',
                 markers: [],
                 infoWindow: {
                     position: {lat: 0, lng: 0},

@@ -1,5 +1,5 @@
 <template>
-    <b-container>
+    <b-container id="video">
         <b-row class="mt-5">
             <b-col xl="12">
                 <h1 class="text-center">Watch the video</h1>

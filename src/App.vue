@@ -4,6 +4,7 @@
     <Video></Video>
     <Texte></Texte>
     <Carte></Carte>
+    <Inscription></Inscription>
   </div>
 </template>
 
@@ -12,10 +13,12 @@ import Navbar from "@/components/Navbar";
 import Video from "@/components/Video";
 import Texte from "@/components/Texte";
 import Carte from "@/components/Carte";
+import Inscription from "@/components/inscription";
 
 export default {
   name: 'App',
   components: {
+    Inscription,
     Carte,
     Texte,
     Video,

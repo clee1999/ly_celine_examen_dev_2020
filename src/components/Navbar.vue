@@ -6,9 +6,10 @@
 
         <b-collapse id="nav-text-collapse" is-nav>
             <b-navbar-nav>
-                <b-link href="#foo">Link</b-link>
-                <b-link href="#foo">Link</b-link>
-                <b-link href="#foo">Link</b-link>
+                <b-link href="#video" >Video</b-link>
+                <b-link href="#texte" class="ml-3">Texte</b-link>
+                <b-link href="#carte" class="ml-3">Carte</b-link>
+                <b-link href="#inscription" class="ml-3">Inscription</b-link>
             </b-navbar-nav>
         </b-collapse>
     </b-navbar>
