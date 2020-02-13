@@ -42,11 +42,18 @@
                         ></b-form-input>
                     </b-form-group>
 
+
+
                     <b-button type="submit" variant="primary">Submit</b-button>
-
                 </b-form>
-                <div id="results"></div>
 
+
+                <div v-if="errors.length">
+                    <b>Please correct the following error(s):</b>
+                    <ul>
+                        <li v-for="error in errors" :key="error.id">{{error}}</li>
+                    </ul>
+                </div>
 
             </b-col>
         </b-row>
@@ -62,19 +69,20 @@
                     name: '',
                     lastname:'',
                     email: '',
+
                 },
 
+                errors : [],
 
             }
         },
         methods: {
             onSubmit(evt) {
                 evt.preventDefault()
-                alert('Votre inscription a été validée !')
+                this.errors = [];
 
                 let access_key = '7b37b087dc3f6d22f6b7f2221dcca41a';
                 let email_address = this.form.email;
-                let results = document.getElementById("results");
 
                 fetch('http://apilayer.net/api/check?access_key=' + access_key + '&email=' + email_address)
                     .then(function(response) {
@@ -83,11 +91,13 @@
                             console.log(data.smtp_check);
                             if (data.smtp_check === false) {
                                 console.log('cette adresse est fausse')
-                                const showFalseMail = '<p>Le message est : </p> + results';
-                                results.insertAdjacentHTML("beforeend", showFalseMail);
+                                alert('Attention, ton email existe pas, donc recommence à nouveau')
+                                this.errors.push('Email not existed');
                                 return
                             } else {
                                 console.log('cette adresse est vraie')
+                                alert('Votre inscription a été validée !')
+                               this.errors.push('Email existed');
                             }
                         });
                     })
