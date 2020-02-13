@@ -1,29 +1,16 @@
 <template>
   <div id="app">
     <Navbar></Navbar>
-    <Video></Video>
-    <Texte></Texte>
-    <Carte></Carte>
-    <Inscription></Inscription>
+    <apropos></apropos>
   </div>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar";
-import Video from "@/components/Video";
-import Texte from "@/components/Texte";
-import Carte from "@/components/Carte";
-import Inscription from "@/components/inscription";
-
+  import Navbar from "@/components/Navbar";
+import Apropos from "@/components/apropos";
 export default {
   name: 'App',
-  components: {
-    Inscription,
-    Carte,
-    Texte,
-    Video,
-    Navbar,
-  }
+  components: {Apropos, Navbar},
 }
 </script>
 
