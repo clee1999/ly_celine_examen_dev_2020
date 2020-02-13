@@ -45,7 +45,7 @@
                     <b-button type="submit" variant="primary">Submit</b-button>
 
                 </b-form>
-
+                <div id="results"></div>
 
 
             </b-col>
@@ -64,15 +64,41 @@
                     email: '',
                 },
 
+
             }
         },
         methods: {
             onSubmit(evt) {
                 evt.preventDefault()
                 alert('Votre inscription a été validée !')
+
+                let access_key = '7b37b087dc3f6d22f6b7f2221dcca41a';
+                let email_address = this.form.email;
+                let results = document.getElementById("results");
+
+                fetch('http://apilayer.net/api/check?access_key=' + access_key + '&email=' + email_address)
+                    .then(function(response) {
+                        response.json().then(function (data) {
+                            console.log(data);
+                            console.log(data.smtp_check);
+                            if (data.smtp_check === false) {
+                                console.log('cette adresse est fausse')
+                                const showFalseMail = '<p>Le message est : </p> + results';
+                                results.insertAdjacentHTML("beforeend", showFalseMail);
+                                return
+                            } else {
+                                console.log('cette adresse est vraie')
+                            }
+                        });
+                    })
+                    .catch(function(err) {
+                        console.log('Fetch Error :-S', err);
+                    })
             },
-        }
+        },
     }
+
+
 </script>
 
 <style scoped>
